@@ -1,0 +1,101 @@
+\documentclass[oneside]{book}
+\usepackage[
+    paperwidth=110 mm,
+    paperheight=178 mm,
+    margin=1 cm,
+    footskip=3 ex
+]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+% date formatting
+    \usepackage{datetime}
+    \newdateformat{timeA}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}
+    }
+    \newdateformat{timeB}{
+        \THEDAY~\monthname[\THEMONTH] \THEYEAR
+    }
+    \newdateformat{timeC}{
+        \monthname[\THEMONTH] \THEYEAR
+    }
+    \newtimeformat{timeD}{%
+        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}\twodigit{\THESECOND}
+    }
+    \newtimeformat{timeE}{%
+        \twodigit{\THEHOUR}\twodigit{\THEMINUTE}
+    }
+    \newdateformat{timeF}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeD
+    }
+    \newdateformat{timeG}{
+        \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}T\timeE
+    }
+
+% background colour
+    \usepackage{xcolor}
+% create dummy text
+    %\usepackage{blindtext}
+    % example: \blinddocument
+% chapter title formatting
+    \usepackage[sf, sl, outermarks]{titlesec}
+    \renewcommand{\thechapter}{\Roman{chapter}}
+    \titleformat
+    {\chapter}
+    [display]
+    {\bfseries\Large}
+    {\filleft}
+    {0ex}
+    {\titlerule\vspace{2ex}\thechapter\hfill\filright}
+    [\vspace{2ex}\titlerule]
+% URL formatting
+    \usepackage[hyphens]{url}
+% dummy text
+    \usepackage{lipsum}
+
+\begin{document}
+
+% set background colour
+    \pagecolor{yellow!50!orange!40}
+% set indent distance
+    \setlength{\parindent}{0 pt}
+
+\title{\textbf{BOOK TITLE}}
+\author{AUTHOR}
+\date{}
+
+% title page
+\thispagestyle{empty}
+\maketitle
+
+% copyright page
+\thispagestyle{empty}
+DOCUMENT LAST UPDATED:\hfill\timeF\today\\
+
+This information (literary work) is released under the terms of the GNU General Public License version 3 (GPLv3). This information is free information: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This information is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. For a copy of the GNU General Public License, see \url{http://www.gnu.org/licenses/}.
+\newpage
+
+% table of contents page
+% dots between chapter name and page number
+    \renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand*\contentsname{\Large CONTENTS}
+\tableofcontents
+\thispagestyle{empty}
+
+% Arabic page numbering
+    \pagenumbering{arabic}
+% enable page numbering
+    \pagestyle{plain}
+% double spacing
+%    \doublespacing
+
+\chapter*{PREFACE}
+
+\lipsum[1]
+
+\chapter{LOREM IPSUM}
+
+\lipsum[2-10]
+
+\end{document}

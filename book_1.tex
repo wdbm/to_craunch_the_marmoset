@@ -1,0 +1,19 @@
+\documentclass{book}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+% remove header rule line
+    %\renewcommand{\headrulewidth}{0pt}
+% remove header contents
+%\fancyhead{}
+% Page X of Y in footer (centered)
+    \cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+\chapter{A chapter}
+% revert plain page style (from \chapter) to fancy
+    \thispagestyle{fancy}
+% dummy text
+    \lipsum[1-25]
+\end{document}​
